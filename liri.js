@@ -93,3 +93,26 @@ var getSpotify = function(songName){
     );
 };
 
+// Function for running the movie search with OMD API
+var getFilm = function(movieName) {
+    if(movieName === undefined) {
+        movieName = "Mr. Nobody";
+    }
+
+    var url = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=full&tomatoes=true&apikey=trilogy";
+    axios.get(url).then(
+        function(response) {
+            var jsonData = response.data;
+
+            console.log("Title: " + jsonData.Title);
+            console.log("Year: " + jsonData.Year);
+            console.log("IMDB Rating: " + jsonData.imdbRating);
+            console.log("Rotten Tomatoes Rating: " + jsonData.Ratings[1].Value);
+            console.log("Country Produced: " + jsonData.Country);
+            console.log("Language: " + jsonData.Language);
+            console.log("Plot: " + jsonData.Plot);
+            console.log("Actors: " + jsonData.Actors);
+        }
+    );
+};
+
