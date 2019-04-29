@@ -130,3 +130,26 @@ var doWhatItSays = function(){
         }
     });
 };
+
+//Switch statement for determining which command to execute
+
+var choice = function(caseData, functionData){
+    switch (caseData){
+    case "concert-this":
+        getBands(functionData);
+        break;
+    case "spotify-this-song":
+        getSpotify(functionData);
+        break;
+    case "movie-this":
+        getFilm(functionData);
+        break;
+    case "do-what-it-says":
+        doWhatItSays();
+        break;
+    default:
+        console.log("Sorry, LIRI doesn't understand.");
+     
+    }
+};
+
