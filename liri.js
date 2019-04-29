@@ -121,12 +121,12 @@ var doWhatItSays = function(){
     fs.readFile("random.txt", "utf8", function(error, data){
         console.log(data);
 
-        var dataArr = data.split(", ");
+        var dataArr = data.split(",");
 
         if(dataArr.length === 2) {
-            pick(dataArr[0], dataArr[1]);
+            choice(dataArr[0], dataArr[1]);
         }else if (dataArr.length === 1) { 
-            pick(dataArr[0]);
+            choice(dataArr[0]);
         }
     });
 };
@@ -152,4 +152,12 @@ var choice = function(caseData, functionData){
      
     }
 };
+
+// Function that takes in command line arguments and uses that to execute the correct function
+var runIt = function(argOne, argTwo) {
+    choice(argOne, argTwo);
+};
+
+//call runIt 
+runIt(process.argv[2], process.argv.slice(3).join(" "));
 
