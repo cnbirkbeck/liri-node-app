@@ -116,3 +116,17 @@ var getFilm = function(movieName) {
     );
 };
 
+//Function for do what it says text on file
+var doWhatItSays = function(){
+    fs.readFile("random.txt", "utf8", function(error, data){
+        console.log(data);
+
+        var dataArr = data.split(", ");
+
+        if(dataArr.length === 2) {
+            pick(dataArr[0], dataArr[1]);
+        }else if (dataArr.length === 1) { 
+            pick(dataArr[0]);
+        }
+    });
+};
